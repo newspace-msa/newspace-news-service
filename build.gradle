@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'org.springframework.boot' version '3.3.1'
-    id 'io.spring.dependency-management' version '1.1.7'
+    id 'io.spring.dependency-management' version '1.1.4'
 }
 
 group = 'com.lgcns'
@@ -21,10 +21,15 @@ configurations {
 
 repositories {
     mavenCentral()
+    // Spring AI
+    maven { url 'https://repo.spring.io/milestone' }
 }
 
-ext {
-    set('springCloudVersion', "2023.0.3")
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.ai:spring-ai-bom:1.0.0-M4"
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:2023.0.3"
+    }
 }
 
 dependencies {
@@ -33,7 +38,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
     // swagger
-    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
+    implementation'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
 
     // eureka
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
@@ -53,12 +58,6 @@ dependencies {
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-}
-
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-    }
 }
 
 tasks.named('test') {
