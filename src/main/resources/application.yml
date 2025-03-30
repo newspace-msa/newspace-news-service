@@ -1,6 +1,6 @@
 spring:
-  profiles:
-    active: ${DEPLOY_TARGET_COLOR:blue}
   cloud:
     config:
       name: newspace-news-service
+  config:
+    import: optional:configserver:${SPRING_CONFIG_IMPORT:http://localhost:8888}
