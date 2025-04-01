@@ -1,4 +1,4 @@
-# newspace-user-service
+# newspace-news-service
 <img src="https://github.com/user-attachments/assets/04d415b7-b379-4a0b-9aba-ff1d3609db85" width="300" />
 
 <br>
