@@ -61,10 +61,7 @@ dependencies {
 
     // config-service
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
-    implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-    implementation "org.springframework.cloud:spring-cloud-starter-bootstrap"
-    implementation "org.springframework.boot:spring-boot-starter-actuator"
 }
 
 tasks.named('test') {
